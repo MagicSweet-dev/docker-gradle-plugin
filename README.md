@@ -8,6 +8,10 @@ The plugin allows to use following Docker commands by firing a Gradle task:
 - `docker push`: `:dockerPush`
 - `docker image rm` `:dockerImageRemove`
 
+## Requirements
+
+Only one. `docker`.
+
 ## Usage
 
 1. Add repository to `settings.gradle(.kts)`:
@@ -32,7 +36,7 @@ The plugin allows to use following Docker commands by firing a Gradle task:
     
             build {
                 dockerfile(file("project.Dockerfile")) // default: Dockerfile
-                arg("JAR_FILE" to tasks.jar.get().outputs.files.first().path.removePrefix(project.projectDir.absolutePath))
+                arg("JAR_FILE" to tasks.jar.get().outputs.files.first().path.removePrefix(projectDir.absolutePath))
             }
             /* or:
             build.dockerfile(file("Dockerfile"))

@@ -19,6 +19,6 @@ docker {
         registry("docker.siverov.com")
         tag(version.toString())
 
-        build.arg("JAR_FILE" to tasks.jar.get().outputs.files.first().path.removePrefix(project.projectDir.absolutePath))
+        build.arg("JAR_FILE" to tasks.jar.get().outputs.files.first().path.removePrefix(projectDir.absolutePath))
     }
 }
