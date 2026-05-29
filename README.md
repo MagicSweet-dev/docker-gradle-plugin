@@ -3,10 +3,10 @@ Simple Gradle plugin to use [Docker](https://www.docker.com) within your project
 
 ## Features
 
-The plugin allows to use following Docker commands by firing a Gradle task:
+The plugin allows to use following Docker commands by executing a respective Gradle task:
 - `docker build`: `:dockerBuild` / `:dockerBuildPush`
 - `docker push`: `:dockerPush`
-- `docker image rm` `:dockerImageRemove`
+- `docker image rm`: `:dockerImageRemove`
 
 ## Requirements
 
