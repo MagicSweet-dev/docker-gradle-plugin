@@ -23,7 +23,7 @@ Only one. `docker`.
         }
     }
     ```
-2. Apply the plugin and adjust image(s) settings:
+2. Apply the plugin:
    ```kotlin
    plugins {
        id("com.siv.docker") version "1.0.0-SNAPSHOT"
