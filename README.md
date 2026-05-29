@@ -24,11 +24,13 @@ Only one. `docker`.
     }
     ```
 2. Apply the plugin and adjust image(s) settings:
-    ```kotlin
-    plugins {
-        id("com.siv.docker") version "1.0.0-SNAPSHOT"
-    }
-    
+   ```kotlin
+   plugins {
+       id("com.siv.docker") version "1.0.0-SNAPSHOT"
+   }
+   ```
+3. Define your docker build:
+   ```kotlin
     docker {
         image {
             registry("docker.siverov.com") // default: docker.io/library
@@ -46,5 +48,5 @@ Only one. `docker`.
     }
     ```
    *Note*: You can specify multiple `image { ... }` blocks to build multiple images.
-3. Run a gradle task of your choice 
-4. 🎉
+4. Run a gradle task of your choice (see [Features](#features))
+5. 🎉
