@@ -49,6 +49,12 @@ publishing {
 }
 
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
 tasks.named<Test>("test") {
     useJUnitPlatform()
 }
