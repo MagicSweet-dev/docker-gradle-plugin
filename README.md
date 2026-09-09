@@ -14,22 +14,13 @@ Only one. `docker`.
 
 ## Usage
 
-1. Add repository to `settings.gradle(.kts)`:
-    ```kotlin
-    pluginManagement {
-        repositories {
-            maven("https://maven.siverov.com/public")
-            gradlePluginPortal()
-        }
-    }
-    ```
-2. Apply the plugin:
+1. Apply the plugin (from Gradle Plugin Portal):
    ```kotlin
    plugins {
-       id("com.siv.docker") version "1.0.0-SNAPSHOT"
+       id("com.siv.docker") version "1.0.0"
    }
    ```
-3. Define your docker build:
+2. Define your docker build:
    ```kotlin
     docker {
         image {

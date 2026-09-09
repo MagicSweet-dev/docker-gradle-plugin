@@ -2,10 +2,11 @@ plugins {
     `java-gradle-plugin`
     kotlin("jvm") version "2.3.0"
     id("maven-publish")
+    id("com.gradle.plugin-publish") version "2.0.0"
 }
 
 group = "com.siv"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenLocal()
@@ -19,11 +20,16 @@ dependencies {
 }
 
 gradlePlugin {
+    website = "https://github.com/MagicSweet-dev/docker-gradle-plugin"
+    vcsUrl = "https://github.com/MagicSweet-dev/docker-gradle-plugin"
     plugins {
         create("docker") {
+            displayName = "Docker"
+            description = "Simple Docker plugin for Gradle"
             group = "com.siv"
             id = "com.siv.docker"
             version = project.version.toString()
+            tags = listOf("docker")
             implementationClass = "com.siv.plugins.docker.DockerPlugin"
         }
     }
@@ -38,6 +44,7 @@ publishing {
 
     repositories {
         mavenLocal()
+//        gradlePluginPortal()
         maven {
             url = uri("https://maven.siverov.com/public/")
             credentials {
