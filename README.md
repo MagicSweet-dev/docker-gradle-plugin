@@ -39,5 +39,5 @@ Only one. `docker`.
     }
     ```
    *Note*: You can specify multiple `image { ... }` blocks to build multiple images.
-4. Run a gradle task of your choice (see [Features](#features))
-5. 🎉
+3. Run a gradle task of your choice (see [Features](#features))
+4. 🎉
