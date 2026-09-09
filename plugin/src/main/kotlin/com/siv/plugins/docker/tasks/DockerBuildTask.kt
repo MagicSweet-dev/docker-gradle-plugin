@@ -1,6 +1,5 @@
 package com.siv.plugins.docker.tasks
 
-import org.apache.commons.exec.OS
 import org.gradle.api.UnknownTaskException
 import org.gradle.internal.extensions.core.serviceOf
 import org.gradle.process.ExecOperations
@@ -27,7 +26,9 @@ open class DockerBuildTask : DockerTask(
                 + Image: ${image.fullImageName}
                 + In: ${ext.dir.absolutePath}
                 + Dockerfile: ${image.build.dockerfile.absolutePath}
-                + Args: ${image.build.args}
+                + Args: ${image.build.args.mapValues { 
+                    if (image.build.redactedArgs.contains(it.key)) "***REDACTED***" else it.value
+                }}
                 + Executable: $dockerPath
             """.trimIndent())
 
@@ -39,15 +40,24 @@ open class DockerBuildTask : DockerTask(
                 */
                 it.executable(dockerPath)
                 it.args(*mutableListOf<String>(
+                    "buildx",
                     "build",
                     "-t", image.fullImageName,
                     "-f", image.build.dockerfile.absolutePath,
                 ).apply {
+                    image.build.platforms.joinToString(",").let { platforms ->
+                        if (platforms.isNotEmpty()) {
+                            add("--platform")
+                            add(platforms)
+                        }
+                    }
                     image.build.args.entries.forEach { e ->
                         add("--build-arg")
                         add("${e.key}=${e.value}")
                     }
                     add(ext.dir.absolutePath)
+
+                    add("--load")
                 }.toTypedArray())
             }
         }
