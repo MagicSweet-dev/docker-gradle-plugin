@@ -3,7 +3,7 @@ import org.gradle.kotlin.dsl.java
 plugins {
     kotlin("jvm")
     java
-    id("com.siv.docker")
+    id("com.siverov.docker")
 }
 
 tasks.jar {

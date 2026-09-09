@@ -3,7 +3,7 @@ plugins {
 }
 
 allprojects {
-    group = "com.siv"
+    group = "com.siverov"
     version = "1.0.0-SNAPSHOT"
 
     repositories {

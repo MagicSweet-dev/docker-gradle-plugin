@@ -17,7 +17,7 @@ Only one. `docker`.
 1. Apply the plugin (from Gradle Plugin Portal):
    ```kotlin
    plugins {
-       id("com.siv.docker") version "1.0.0"
+       id("com.siverov.docker") version "1.0.0"
    }
    ```
 2. Define your docker build:

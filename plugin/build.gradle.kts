@@ -5,7 +5,7 @@ plugins {
     id("com.gradle.plugin-publish") version "2.0.0"
 }
 
-group = "com.siv"
+group = "com.siverov"
 version = "1.0.0"
 
 repositories {
@@ -26,8 +26,8 @@ gradlePlugin {
         create("docker") {
             displayName = "Docker"
             description = "Simple Docker plugin for Gradle"
-            group = "com.siv"
-            id = "com.siv.docker"
+            group = "com.siverov"
+            id = "com.siverov.docker"
             version = project.version.toString()
             tags = listOf("docker")
             implementationClass = "com.siv.plugins.docker.DockerPlugin"
