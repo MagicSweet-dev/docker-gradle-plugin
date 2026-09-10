@@ -26,10 +26,12 @@ gradlePlugin {
         create("docker") {
             displayName = "Docker"
             description = "Simple Docker plugin for Gradle"
-            group = "com.siverov"
+            group = project.group.toString()
             id = "com.siverov.docker"
             version = project.version.toString()
-            tags = listOf("docker")
+            tags = listOf(
+                "docker"
+            )
             implementationClass = "com.siv.plugins.docker.DockerPlugin"
         }
     }
@@ -44,7 +46,6 @@ publishing {
 
     repositories {
         mavenLocal()
-//        gradlePluginPortal()
         maven {
             url = uri("https://maven.siverov.com/public/")
             credentials {
@@ -57,6 +58,8 @@ publishing {
 
 
 java {
+    withSourcesJar()
+    withJavadocJar()
     toolchain {
         languageVersion = JavaLanguageVersion.of(17)
     }

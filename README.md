@@ -20,6 +20,8 @@ Only one. `docker`.
        id("com.siverov.docker") version "1.0.0"
    }
    ```
+   Alternatively, you can use a `-SNAPSHOT` version from https://maven.siverov.com/public<br>
+   (but be aware: SNAPSHOT is a development version)
 2. Define your docker build:
    ```kotlin
     docker {
@@ -29,7 +31,7 @@ Only one. `docker`.
     
             build {
                 dockerfile(file("project.Dockerfile")) // default: Dockerfile
-                arg("JAR_FILE" to tasks.jar.get().outputs.files.first().path.removePrefix(projectDir.absolutePath))
+                arg("JAR_FILE" to tasks.jar.get().outputs.files.singleFile.relativeTo(projectDir))
             }
             /* or:
             build.dockerfile(file("Dockerfile"))

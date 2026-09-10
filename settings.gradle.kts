@@ -1,7 +1,7 @@
 rootProject.name = "docker-gradle-plugin"
 
 pluginManagement {
-    includeBuild("./plugin")
+    includeBuild("./plugin-docker")
     repositories {
         maven("https://maven.siverov.com/public")
         mavenCentral()
