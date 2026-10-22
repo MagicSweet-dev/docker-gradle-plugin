@@ -2,6 +2,7 @@ package com.siv.plugins.docker
 
 import com.siv.plugins.docker.tasks.DockerBuildPushTask
 import com.siv.plugins.docker.tasks.DockerBuildTask
+import com.siv.plugins.docker.tasks.DockerImagePrintTask
 import com.siv.plugins.docker.tasks.DockerPushTask
 import com.siv.plugins.docker.tasks.DockerRemoveTask
 import org.gradle.api.Plugin
@@ -17,6 +18,7 @@ class DockerPlugin : Plugin<Project> {
                 "dockerPush" to DockerPushTask::class,
                 "dockerImageRemove" to DockerRemoveTask::class,
                 "dockerBuildPush" to DockerBuildPushTask::class,
+                "dockerImagePrint" to DockerImagePrintTask::class
             )) register(task.key, task.value.java) {}
         }
 
